@@ -7,6 +7,7 @@ public class CharacterController : MonoBehaviour
 
     public float movementUnits;
     public float forceModifier;
+    public float maxVelocity;
 
     private List<GameObject> bodyParts;
     private GameObject arm1;
@@ -57,28 +58,28 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKey(KeyCode.I))
             MoveBodyPart(true, arm1);
         
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKey(KeyCode.K))
             MoveBodyPart(false, arm1);
 
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKey(KeyCode.O))
             MoveBodyPart(true, arm2);
         
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKey(KeyCode.L))
             MoveBodyPart(false, arm2);
         
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
             MoveBodyPart(true, leg1);
         
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
             MoveBodyPart(false, leg1);
         
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
             MoveBodyPart(true, leg2);
         
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
             MoveBodyPart(false, leg2);
 
     }
@@ -91,7 +92,8 @@ public class CharacterController : MonoBehaviour
             sign *= -1;
         var forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z + (movementUnits*sign)); //Rotate bodypart
         bodyPart.transform.eulerAngles = forceToAdd;
-        rb.AddForceAtPosition(forceToAdd/forceModifier, bodyPart.transform.position);// Add force in the direction of movement at bodypart position
+        if(rb.velocity.magnitude < maxVelocity)
+            rb.AddForceAtPosition(forceToAdd/forceModifier, bodyPart.transform.position);// Add force in the direction of movement at bodypart position
 
     }
 }
