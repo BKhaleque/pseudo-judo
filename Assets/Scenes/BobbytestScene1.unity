@@ -143,9 +143,9 @@ MonoBehaviour:
   movementUnits: 1
   forceModifier: 200
   maxVelocity: 1
-  maxLegRotation: 0
-  maxArmRotation: 0
-  minLegRotation: 0
+  maxLegRotation: 200
+  maxArmRotation: 350
+  minLegRotation: -50
   minArmRotation: 0
   player1: 0
 --- !u!1 &435744173
@@ -372,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312842587558552743, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2312842587558667667, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_LocalScale.x
@@ -432,7 +432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312842587558721671, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.53
+      value: 1.23
       objectReference: {fileID: 0}
     - target: {fileID: 2312842587558721671, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_LocalPosition.y
@@ -500,7 +500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4379763369732506959, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_Constraints
-      value: 72
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7222772183433639530, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_UseGravity

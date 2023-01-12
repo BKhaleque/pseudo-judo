@@ -171,7 +171,7 @@ public class CharacterController : MonoBehaviour
                     bodyPart.transform.position); // Add force in the direction of movement at bodypart position
         }
         else
-            forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z - (movementUnits*10 * sign));
+            forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z - (movementUnits*15* sign));
         
         bodyPart.transform.eulerAngles = forceToAdd;
 

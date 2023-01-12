@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 2312842587558667679}
   m_Layer: 0
   m_Name: B_L_Thigh
-  m_TagString: Leg
+  m_TagString: leg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 2312842587558667675}
   m_Layer: 0
   m_Name: B_R_Thigh
-  m_TagString: Leg
+  m_TagString: leg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1921,8 +1921,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04328b70ccb3417eb52da43e818e404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementUnits: 5
-  forceModifier: 150
+  movementUnits: 1
+  forceModifier: 200
+  maxVelocity: 1
+  maxLegRotation: 200
+  maxArmRotation: 320
+  minLegRotation: -40
+  minArmRotation: 0
+  player1: 0
 --- !u!54 &4379763369732506959
 Rigidbody:
   m_ObjectHideFlags: 0
