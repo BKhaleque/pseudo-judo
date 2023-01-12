@@ -13,6 +13,9 @@ public class CharacterListSelector : MonoBehaviour
     public GameObject playerOneCharacter;
     public GameObject playerTwoCharacter;
 
+    public Material playerOneColour;
+    public Material playerTwoColour;
+
     public GameObject[] characterRoster;
 
     GameObject SelectYourCharacter(string characterName, int playerNumber)
@@ -59,9 +62,11 @@ public class CharacterListSelector : MonoBehaviour
         playerOneSpawn.myPlayer = playerOneCharacter;
         playerTwoSpawn.myPlayer = playerTwoCharacter;
 
+        playerOneSpawn.myColour = playerOneColour;
+        playerTwoSpawn.myColour = playerTwoColour;
+
         playerOneSpawn.isPlayerOne = true;
         playerTwoSpawn.isPlayerOne = false;
-
 
         playerOneSpawn.SpawnPlayer();
         playerTwoSpawn.SpawnPlayer();

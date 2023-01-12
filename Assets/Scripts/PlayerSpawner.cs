@@ -5,12 +5,17 @@ using UnityEngine;
 public class PlayerSpawner : MonoBehaviour
 {
     public GameObject myPlayer;
+    public Material myColour;
     public bool isPlayerOne;
 
     public void SpawnPlayer()
     {
         GameObject Player = Instantiate(myPlayer, transform.position, transform.rotation);
         Player.GetComponent<CharacterController>().isPlayerOne = isPlayerOne;
+        
+        // Recolours the player character as appropriate
+        Player.transform.GetChild(0).Find("Mesh").gameObject.GetComponent<SkinnedMeshRenderer>().material = myColour;
+
         if (isPlayerOne)
         {
             // Updates the BodyCollider hitbox to have the correct tag
