@@ -6,6 +6,7 @@ public class CharacterController : MonoBehaviour
 {
 
     public float movementUnits;
+    public float forceModifier;
 
     private List<GameObject> bodyParts;
     private GameObject arm1;
@@ -27,7 +28,6 @@ public class CharacterController : MonoBehaviour
             Searcher(bodyParts, gameObj.gameObject);
         }
     }
-
     private void Searcher(List<GameObject> list, GameObject root)
     {
         list.Add(root);
@@ -91,32 +91,7 @@ public class CharacterController : MonoBehaviour
             sign *= -1;
         var forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z + (movementUnits*sign)); //Rotate bodypart
         bodyPart.transform.eulerAngles = forceToAdd;
-        rb.AddForceAtPosition(forceToAdd/30, bodyPart.transform.position);// Add force in the direction of movement at bodypart position
+        rb.AddForceAtPosition(forceToAdd/forceModifier, bodyPart.transform.position);// Add force in the direction of movement at bodypart position
 
     }
-
-    // private void MoveArm1(bool up)
-    // {
-    //     var eulerAngles = arm1.transform.eulerAngles;
-    //     //var val = 10f;
-    //     if (!up)
-    //         movementUnits *= -1;
-    //     var forceToAdd = new Vector3(eulerAngles.x,
-    //         eulerAngles.y, eulerAngles.z + movementUnits);
-    //     arm1.transform.eulerAngles = forceToAdd;
-    //        rb.AddForceAtPosition(forceToAdd/20, arm1.transform.position);
-    // }
-    //
-    // private void MoveLeg1(bool up)
-    // {
-    //     var eulerAngles = leg1.transform.eulerAngles;
-    //     //var val = 10f;
-    //     if (!up)
-    //         movementUnits *= -1;
-    //     var forceToAdd = new Vector3(eulerAngles.x,
-    //         eulerAngles.y, eulerAngles.z + movementUnits);
-    //     leg1.transform.eulerAngles = forceToAdd;
-    //     rb.AddForceAtPosition(forceToAdd/20, leg1.transform.position);
-    //
-    // }
 }
