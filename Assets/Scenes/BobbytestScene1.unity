@@ -143,8 +143,10 @@ MonoBehaviour:
   movementUnits: 1
   forceModifier: 200
   maxVelocity: 1
-  maxRotation: 200
-  minRotation: -80
+  maxLegRotation: 0
+  maxArmRotation: 0
+  minLegRotation: 0
+  minArmRotation: 0
   player1: 0
 --- !u!1 &435744173
 GameObject:
@@ -370,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312842587558552743, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2312842587558667667, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_LocalScale.x
@@ -773,7 +775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: maxRotation
-      value: 200
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: maxVelocity
@@ -781,7 +783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: minRotation
-      value: -80
+      value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: forceModifier
@@ -791,9 +793,25 @@ PrefabInstance:
       propertyPath: movementUnits
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: maxArmRotation
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: maxLegRotation
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: minArmRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: minLegRotation
+      value: -50
+      objectReference: {fileID: 0}
     - target: {fileID: 4379763369732506959, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_Constraints
-      value: 72
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7222772183433639530, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_UseGravity

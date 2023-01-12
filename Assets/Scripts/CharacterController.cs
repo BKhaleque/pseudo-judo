@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,10 @@ public class CharacterController : MonoBehaviour
     public float movementUnits;
     public float forceModifier;
     public float maxVelocity;
-    public float maxRotation;
-    public float minRotation;
+    public float maxLegRotation;
+    public float maxArmRotation;
+    public float minLegRotation; 
+    public float minArmRotation; 
     public bool player1;
     //public bool player2;
     
@@ -32,6 +35,11 @@ public class CharacterController : MonoBehaviour
         {
             Searcher(bodyParts, gameObj.gameObject);
         }
+        
+        // Mathf.Clamp(leg1.transform.eulerAngles.y, -100, 100);
+        // Mathf.Clamp(leg2.transform.eulerAngles.y, -100, 100);
+        // Mathf.Clamp(arm1.transform.eulerAngles.y, minRotation, maxRotation);
+        // Mathf.Clamp(arm2.transform.eulerAngles.y, minRotation, maxRotation);
     }
     //Get all children and grandchildren of current game obj recursively
     private void Searcher(List<GameObject> list, GameObject root)
@@ -58,8 +66,8 @@ public class CharacterController : MonoBehaviour
             Searcher(list, gameObj.gameObject);
         }
         
-        //leg1.transform.eulerAngles.z = Mathf.Clamp(leg1.transform.eulerAngles.y, -100, 100);
-        //leg2.transform.eulerAngles.z = Mathf.Clamp(leg2.transform.eulerAngles.y, -100, 100);
+        
+        
     }
 
     // Update is called once per frame
@@ -79,16 +87,16 @@ public class CharacterController : MonoBehaviour
                 MoveBodyPart(false, arm2);
             }
 
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(KeyCode.A))
                 MoveBodyPart(true, leg1);
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.Q))
                 MoveBodyPart(false, leg1);
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.S))
                 MoveBodyPart(true, leg2);
 
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.W))
                 MoveBodyPart(false, leg2);
         }
         else
@@ -105,16 +113,16 @@ public class CharacterController : MonoBehaviour
                 MoveBodyPart(false, arm2);
             }
 
-            if (Input.GetKey(KeyCode.O))
+            if (Input.GetKey(KeyCode.K))
                 MoveBodyPart(true, leg1);
 
-            if (Input.GetKey(KeyCode.K))
+            if (Input.GetKey(KeyCode.O))
                 MoveBodyPart(false, leg1);
 
-            if (Input.GetKey(KeyCode.P))
+            if (Input.GetKey(KeyCode.L))
                 MoveBodyPart(true, leg2);
 
-            if (Input.GetKey(KeyCode.L))
+            if (Input.GetKey(KeyCode.P))
                 MoveBodyPart(false, leg2);
         }
 
@@ -122,20 +130,50 @@ public class CharacterController : MonoBehaviour
     
     private void MoveBodyPart(bool up, GameObject bodyPart)
     {
-        var localTrans = bodyPart.transform;
         var eulerAngles = bodyPart.transform.eulerAngles; //To control rotation
-        //var zRotation;
-        //zRotation = Mathf.Clamp(zRotation + eulerAngles.z, minRotation, maxRotation);
         var sign = 1;
         if (!up) //Move down instead
             sign *= -1;
-        //localTrans.rotation = Quaternion.Euler(eulerAngles);
-        var forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z + (movementUnits*sign)); //Rotate bodypart
-        bodyPart.transform.eulerAngles = forceToAdd;
-        if(rb.velocity.magnitude < maxVelocity)
-            rb.AddForceAtPosition(forceToAdd/forceModifier, bodyPart.transform.position);// Add force in the direction of movement at bodypart position
-
         
-     
+        var signedAngle = (eulerAngles.z > 180) ? eulerAngles.z - 360 : eulerAngles.z; //Get angle with +ive or -ive value
+
+        //var forceToAdd = Vector3.zero;
+        if (signedAngle < maxLegRotation && signedAngle > minLegRotation && bodyPart.tag.Equals("leg"))
+        {
+            AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, true);
+            //Debug.Log("In correct range");
+            //Debug.Log(signedAngle);
+
+        }
+        else if( bodyPart.tag.Equals("leg"))
+        {
+            AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, false);
+            //Debug.Log(eulerAngles.z);
+            //Debug.Log(signedAngle);
+
+        }
+
+        if (signedAngle < maxArmRotation && signedAngle > minArmRotation && bodyPart.tag.Equals("arm"))
+            AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, true);
+        else if (bodyPart.tag.Equals("arm"))
+            AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, false);
+
+    }
+
+    void AddForceToRigidBody(Rigidbody rb, Vector3 eulerAngles, float sign,GameObject bodyPart, bool inAngleRange)
+    {
+        var forceToAdd = Vector3.zero;
+        if (inAngleRange)
+        {
+            forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z + (movementUnits * sign));
+            if (rb.velocity.magnitude < maxVelocity)
+                rb.AddForceAtPosition(forceToAdd / forceModifier,
+                    bodyPart.transform.position); // Add force in the direction of movement at bodypart position
+        }
+        else
+            forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z - (movementUnits*10 * sign));
+        
+        bodyPart.transform.eulerAngles = forceToAdd;
+
     }
 }
