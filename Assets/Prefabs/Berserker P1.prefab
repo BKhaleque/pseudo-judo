@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 5550897423770831381}
   m_Layer: 0
   m_Name: Mesh_Berserker
-  m_TagString: Player 1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1404,8 +1404,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5550897423773941995}
   m_LocalRotation: {x: 0.000000037432645, y: -0.000000060648894, z: -0.11640206, w: 0.9932022}
-  m_LocalPosition: {x: -0.07370796, y: 0.000000038146972, z: 0.00000017166137}
-  m_LocalScale: {x: 0.9999997, y: 0.9999997, z: 1}
+  m_LocalPosition: {x: -0.07370796, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5550897423773644011}
@@ -2296,7 +2296,7 @@ MonoBehaviour:
   maxArmRotation: 320
   minLegRotation: -40
   minArmRotation: 0
-  player1: 1
+  isPlayerOne: 0
 --- !u!54 &5897580587519071299
 Rigidbody:
   m_ObjectHideFlags: 0

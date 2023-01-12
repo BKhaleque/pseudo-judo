@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 6623933264524302755}
   m_Layer: 0
   m_Name: Mesh_Berserker
-  m_TagString: Player 2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2342,7 +2342,7 @@ MonoBehaviour:
   maxArmRotation: 320
   minLegRotation: -40
   minArmRotation: 0
-  player1: 0
+  isPlayerOne: 0
 --- !u!54 &5133019135805016053
 Rigidbody:
   m_ObjectHideFlags: 0
