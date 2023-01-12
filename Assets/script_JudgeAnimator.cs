@@ -14,6 +14,13 @@ public class script_JudgeAnimator : MonoBehaviour
     private float minRotation = -80f;
     private float maxRotation = 60f;
 
+    private float maxMoveDist = 0.4f;
+    private float moveTimer = 0f;
+    private float startY = 0f;
+    private float initialY = 0f;
+    private float targetY = 0f;
+    private float moveTimeLength = 0f;
+
     private float rightInitialRot  = 0f;
     private float rightTargetRot = 0f;
 
@@ -33,12 +40,19 @@ public class script_JudgeAnimator : MonoBehaviour
         rightTargetRot = Random.Range(minRotation, maxRotation);
         rightTargetTime = Random.Range(minMoveTime, maxMoveTime);
         leftTargetTime = Random.Range(minMoveTime, maxMoveTime);
+
+        startY = this.transform.position.y;
+        initialY = startY;
+        targetY = Random.Range(startY-maxMoveDist, startY+maxMoveDist);
+
+        moveTimeLength= Random.Range(0.05f, 0.2f);
     }
 
 
     public void Update(){
         rightTimer+=Time.deltaTime;
         leftTimer+=Time.deltaTime;
+        moveTimer+=Time.deltaTime;
 
         //left arm logic
         float newLeftRot = Mathf.Lerp(leftInitialRot, leftTargetRot, (leftTimer/leftTargetTime));
@@ -67,5 +81,20 @@ public class script_JudgeAnimator : MonoBehaviour
             rightTargetTime = Random.Range(minMoveTime, maxMoveTime);
             rightTimer = 0f;
         }
+
+        //Movement logic
+        float newY = Mathf.Lerp(initialY, targetY, moveTimer/moveTimeLength);
+
+        Vector3 currPos = this.transform.position;
+
+        this.transform.position = new Vector3(currPos.x, newY, currPos.z);
+
+        if(moveTimer>moveTimeLength){
+            moveTimer = 0f;
+            targetY = Random.Range(startY-maxMoveDist, startY+maxMoveDist);
+            initialY = this.transform.position.y;
+        }
+
+
     }
 }
