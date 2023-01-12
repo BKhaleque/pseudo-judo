@@ -59,12 +59,13 @@ public class script_LeaderChoosePanel : MonoBehaviour
         p2Selected = false;
         p1Leader = enum_Leaders.NONE;
         p2Leader = enum_Leaders.NONE;
+        selectButton.SetActive(false);
+        fightButton.SetActive(false);
 
     }
 
     public void SetSelectedLeader(enum_Leaders selected, script_LeaderIconUI icon){
         tempSelectedLeader = selected;
-        selectButton.SetActive(false);
         //Remove previous Selection UI if present
         if(!p1Selected&&p1Icon!=icon&&p1Icon!=null){
             p1Icon.DeselectLeader(1);
@@ -83,16 +84,20 @@ public class script_LeaderChoosePanel : MonoBehaviour
     }
 
     public void ConfirmSelection(){
-        if(!p1Selected){
-            p1Leader = tempSelectedLeader;
-            tempSelectedLeader=enum_Leaders.NONE;
-            p1Selected = true;
+        if(tempSelectedLeader!=enum_Leaders.NONE){
+            if(!p1Selected){
+                p1Leader = tempSelectedLeader;
+                tempSelectedLeader=enum_Leaders.NONE;
+                p1Selected = true;
+            }
+            else if(!p2Selected){
+                p2Leader = tempSelectedLeader;
+                tempSelectedLeader=enum_Leaders.NONE;
+                p2Selected = true;
+            }
+
         }
-        else if(!p2Selected){
-            p2Leader = tempSelectedLeader;
-            tempSelectedLeader=enum_Leaders.NONE;
-            p2Selected = true;
-        }
+        selectButton.SetActive(false);
     }
 
     public void StartFight(){
@@ -103,8 +108,12 @@ public class script_LeaderChoosePanel : MonoBehaviour
         if(!p1Selected){
             return 1;
         }
-        else{
+        else if(!p2Selected){
             return 2;
+        }
+        //This is a lazy hack, but 3 indicates that both players have seleted and no more input should be allowed
+        else{
+            return 3;
         }
     }
     

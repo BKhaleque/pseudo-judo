@@ -45,16 +45,22 @@ public class script_LeaderIconUI : MonoBehaviour
     }
 
     public void SelectLeader(){
-        leaderPanel.SetSelectedLeader(leader, this);
-        Debug.Log("Temp leader selected " + leader);
-
         int playerSelected = leaderPanel.GetNextPlayerToSelect();
+        if(playerSelected<3){
+            leaderPanel.SetSelectedLeader(leader, this);
+            Debug.Log("Temp leader selected " + leader);
 
-        if(playerSelected==1){
-            selectedP1Panel.SetActive(true);
+
+            if(playerSelected==1){
+                selectedP1Panel.SetActive(true);
+            }
+            else{
+                selectedP2Panel.SetActive(true);
+            }
+
         }
         else{
-            selectedP2Panel.SetActive(true);
+            Debug.Log("Players already selected");
         }
 
     }
