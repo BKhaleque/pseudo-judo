@@ -345,6 +345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Berserker (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2312842587558552743, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2312842587558667667, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -403,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312842587558721671, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.14
+      value: 4.89
       objectReference: {fileID: 0}
     - target: {fileID: 2312842587558721671, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_LocalPosition.y
@@ -468,6 +472,10 @@ PrefabInstance:
     - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: movementUnits
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4379763369732506959, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: m_Constraints
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 7222772183433639530, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_UseGravity
@@ -737,16 +745,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: maxRotation
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: maxVelocity
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: minRotation
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: forceModifier
-      value: 5000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: movementUnits
-      value: 0.05
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4379763369732506959, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: m_Constraints
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 7222772183433639530, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_UseGravity

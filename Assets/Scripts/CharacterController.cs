@@ -8,6 +8,8 @@ public class CharacterController : MonoBehaviour
     public float movementUnits;
     public float forceModifier;
     public float maxVelocity;
+    public float maxRotation;
+    public float minRotation;
 
     private List<GameObject> bodyParts;
     private GameObject arm1;
@@ -52,10 +54,13 @@ public class CharacterController : MonoBehaviour
             }
             Searcher(list, gameObj.gameObject);
         }
+        
+        //leg1.transform.eulerAngles.z = Mathf.Clamp(leg1.transform.eulerAngles.y, -100, 100);
+        //leg2.transform.eulerAngles.z = Mathf.Clamp(leg2.transform.eulerAngles.y, -100, 100);
     }
 
     // Update is called once per frame
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.I))
             MoveBodyPart(true, arm1);
@@ -85,14 +90,19 @@ public class CharacterController : MonoBehaviour
     
     private void MoveBodyPart(bool up, GameObject bodyPart)
     {
+        var localTrans = bodyPart.transform;
         var eulerAngles = bodyPart.transform.eulerAngles; //To control rotation
+        //eulerAngles.z = Mathf.Clamp(eulerAngles.z, minRotation, maxRotation);
         var sign = 1;
         if (!up) //Move down instead
             sign *= -1;
+        //localTrans.rotation = Quaternion.Euler(eulerAngles);
         var forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z + (movementUnits*sign)); //Rotate bodypart
         bodyPart.transform.eulerAngles = forceToAdd;
         if(rb.velocity.magnitude < maxVelocity)
             rb.AddForceAtPosition(forceToAdd/forceModifier, bodyPart.transform.position);// Add force in the direction of movement at bodypart position
 
+        
+     
     }
 }
