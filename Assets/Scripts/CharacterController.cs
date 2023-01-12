@@ -20,7 +20,6 @@ public class CharacterController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        //animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         bodyParts = new List<GameObject>();
         if (gameObject.transform.childCount <= 0) return;
@@ -29,6 +28,7 @@ public class CharacterController : MonoBehaviour
             Searcher(bodyParts, gameObj.gameObject);
         }
     }
+    //Get all children and grandchildren of current game obj recursively
     private void Searcher(List<GameObject> list, GameObject root)
     {
         list.Add(root);
@@ -50,7 +50,6 @@ public class CharacterController : MonoBehaviour
                         leg2 = gameObj.gameObject;
                     break;
             }
-
             Searcher(list, gameObj.gameObject);
         }
     }
