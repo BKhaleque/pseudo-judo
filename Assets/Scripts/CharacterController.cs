@@ -13,8 +13,7 @@ public class CharacterController : MonoBehaviour
     public float maxArmRotation;
     public float minLegRotation; 
     public float minArmRotation; 
-    public bool player1;
-    //public bool player2;
+    public bool isPlayerOne;
     
     private List<GameObject> bodyParts;
     private GameObject arm1;
@@ -73,57 +72,61 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (player1)
+        if(BattleManager.instance.fightBegin == true)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (isPlayerOne)
             {
-                MoveBodyPart(true, arm1);
-                MoveBodyPart(true, arm2);
+                if (Input.GetKey(KeyCode.E))
+                {
+                    MoveBodyPart(true, arm1);
+                    MoveBodyPart(true, arm2);
+                }
+
+                if (Input.GetKey(KeyCode.D))
+                {
+                    MoveBodyPart(false, arm1);
+                    MoveBodyPart(false, arm2);
+                }
+
+                if (Input.GetKey(KeyCode.A))
+                    MoveBodyPart(true, leg1);
+
+                if (Input.GetKey(KeyCode.Q))
+                    MoveBodyPart(false, leg1);
+
+                if (Input.GetKey(KeyCode.S))
+                    MoveBodyPart(true, leg2);
+
+                if (Input.GetKey(KeyCode.W))
+                    MoveBodyPart(false, leg2);
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.I))
+                {
+                    MoveBodyPart(true, arm1);
+                    MoveBodyPart(true, arm2);
+                }
+
+                if (Input.GetKey(KeyCode.J))
+                {
+                    MoveBodyPart(false, arm1);
+                    MoveBodyPart(false, arm2);
+                }
+
+                if (Input.GetKey(KeyCode.K))
+                    MoveBodyPart(true, leg1);
+
+                if (Input.GetKey(KeyCode.O))
+                    MoveBodyPart(false, leg1);
+
+                if (Input.GetKey(KeyCode.L))
+                    MoveBodyPart(true, leg2);
+
+                if (Input.GetKey(KeyCode.P))
+                    MoveBodyPart(false, leg2);
             }
 
-            if (Input.GetKey(KeyCode.D))
-            {
-                MoveBodyPart(false, arm1);
-                MoveBodyPart(false, arm2);
-            }
-
-            if (Input.GetKey(KeyCode.A))
-                MoveBodyPart(true, leg1);
-
-            if (Input.GetKey(KeyCode.Q))
-                MoveBodyPart(false, leg1);
-
-            if (Input.GetKey(KeyCode.S))
-                MoveBodyPart(true, leg2);
-
-            if (Input.GetKey(KeyCode.W))
-                MoveBodyPart(false, leg2);
-        }
-        else
-        {
-            if (Input.GetKey(KeyCode.I))
-            {
-                MoveBodyPart(true, arm1);
-                MoveBodyPart(true, arm2);
-            }
-
-            if (Input.GetKey(KeyCode.J))
-            {
-                MoveBodyPart(false, arm1);
-                MoveBodyPart(false, arm2);
-            }
-
-            if (Input.GetKey(KeyCode.K))
-                MoveBodyPart(true, leg1);
-
-            if (Input.GetKey(KeyCode.O))
-                MoveBodyPart(false, leg1);
-
-            if (Input.GetKey(KeyCode.L))
-                MoveBodyPart(true, leg2);
-
-            if (Input.GetKey(KeyCode.P))
-                MoveBodyPart(false, leg2);
         }
 
     }
