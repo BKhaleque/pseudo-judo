@@ -414,6 +414,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: leg
       objectReference: {fileID: 0}
+    - target: {fileID: 2312842587558482387, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312842587558482389, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: m_TagString
+      value: arm
+      objectReference: {fileID: 0}
     - target: {fileID: 2312842587558552743, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_Name
       value: Berserker
@@ -465,6 +473,10 @@ PrefabInstance:
     - target: {fileID: 2312842588122501119, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312842588264722419, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
+      propertyPath: movementUnits
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7222772183433639530, guid: fbf89d03afc7fb848af45a6cf9c83d98, type: 3}
       propertyPath: m_UseGravity

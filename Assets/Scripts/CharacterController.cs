@@ -5,15 +5,21 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 
+    public float movementUnits;
+
     private List<GameObject> bodyParts;
-    private GameObject arms;
-    private GameObject legs;
+    private GameObject arm1;
+    private GameObject arm2;
+    private GameObject leg1;
+    private GameObject leg2;
+    private Rigidbody rb;
 
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
         bodyParts = new List<GameObject>();
         if (gameObject.transform.childCount <= 0) return;
         foreach (Transform gameObj in gameObject.transform)
@@ -31,10 +37,16 @@ public class CharacterController : MonoBehaviour
             switch (gameObj.tag)
             {
                 case "arm":
-                    arms = gameObj.gameObject;
+                    if (arm1 == null)
+                        arm1 = gameObj.gameObject;
+                    else
+                        arm2 = gameObj.gameObject;
                     break;
                 case "leg":
-                    legs = gameObj.gameObject;
+                    if (leg1 == null)
+                        leg1 = gameObj.gameObject;
+                    else
+                        leg2 = gameObj.gameObject;
                     break;
             }
 
@@ -43,45 +55,68 @@ public class CharacterController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
-            MoveArms(true);
+            MoveBodyPart(true, arm1);
         
         if (Input.GetKeyDown(KeyCode.K))
-            MoveArms(false);
+            MoveBodyPart(false, arm1);
+
+        if (Input.GetKeyDown(KeyCode.O))
+            MoveBodyPart(true, arm2);
+        
+        if (Input.GetKeyDown(KeyCode.L))
+            MoveBodyPart(false, arm2);
         
         if (Input.GetKeyDown(KeyCode.S))
-            MoveLegs(true);
+            MoveBodyPart(true, leg1);
         
         if (Input.GetKeyDown(KeyCode.W))
-            MoveLegs(false);
+            MoveBodyPart(false, leg1);
         
+        if (Input.GetKeyDown(KeyCode.A))
+            MoveBodyPart(true, leg2);
+        
+        if (Input.GetKeyDown(KeyCode.Q))
+            MoveBodyPart(false, leg2);
 
-
-        
-        
     }
-
-    void MoveArms(bool up)
+    
+    private void MoveBodyPart(bool up, GameObject bodyPart)
     {
-        var eulerAngles = arms.transform.eulerAngles;
-        var val = 10f;
-        if (!up)
-            val *= -1;
-        
-        arms.transform.eulerAngles = new Vector3(eulerAngles.x,
-            eulerAngles.y, eulerAngles.z + val);
+        var eulerAngles = bodyPart.transform.eulerAngles; //To control rotation
+        var sign = 1;
+        if (!up) //Move down instead
+            sign *= -1;
+        var forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z + (movementUnits*sign)); //Rotate bodypart
+        bodyPart.transform.eulerAngles = forceToAdd;
+        rb.AddForceAtPosition(forceToAdd/30, bodyPart.transform.position);// Add force in the direction of movement at bodypart position
+
     }
 
-    void MoveLegs(bool up)
-    {
-        var eulerAngles = legs.transform.eulerAngles;
-        var val = 10f;
-        if (!up)
-            val *= -1;
-        
-        legs.transform.eulerAngles = new Vector3(eulerAngles.x,
-            eulerAngles.y, eulerAngles.z + val);
-    }
+    // private void MoveArm1(bool up)
+    // {
+    //     var eulerAngles = arm1.transform.eulerAngles;
+    //     //var val = 10f;
+    //     if (!up)
+    //         movementUnits *= -1;
+    //     var forceToAdd = new Vector3(eulerAngles.x,
+    //         eulerAngles.y, eulerAngles.z + movementUnits);
+    //     arm1.transform.eulerAngles = forceToAdd;
+    //        rb.AddForceAtPosition(forceToAdd/20, arm1.transform.position);
+    // }
+    //
+    // private void MoveLeg1(bool up)
+    // {
+    //     var eulerAngles = leg1.transform.eulerAngles;
+    //     //var val = 10f;
+    //     if (!up)
+    //         movementUnits *= -1;
+    //     var forceToAdd = new Vector3(eulerAngles.x,
+    //         eulerAngles.y, eulerAngles.z + movementUnits);
+    //     leg1.transform.eulerAngles = forceToAdd;
+    //     rb.AddForceAtPosition(forceToAdd/20, leg1.transform.position);
+    //
+    // }
 }
