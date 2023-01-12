@@ -10,13 +10,16 @@ public class CharacterController : MonoBehaviour
     public float maxVelocity;
     public float maxRotation;
     public float minRotation;
-
+    public bool player1;
+    //public bool player2;
+    
     private List<GameObject> bodyParts;
     private GameObject arm1;
     private GameObject arm2;
     private GameObject leg1;
     private GameObject leg2;
     private Rigidbody rb;
+    
 
 
     // Start is called before the first frame update
@@ -62,29 +65,58 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.I))
-            MoveBodyPart(true, arm1);
-        
-        if (Input.GetKey(KeyCode.K))
-            MoveBodyPart(false, arm1);
+        if (player1)
+        {
+            if (Input.GetKey(KeyCode.E))
+            {
+                MoveBodyPart(true, arm1);
+                MoveBodyPart(true, arm2);
+            }
 
-        if (Input.GetKey(KeyCode.O))
-            MoveBodyPart(true, arm2);
-        
-        if (Input.GetKey(KeyCode.L))
-            MoveBodyPart(false, arm2);
-        
-        if (Input.GetKey(KeyCode.S))
-            MoveBodyPart(true, leg1);
-        
-        if (Input.GetKey(KeyCode.W))
-            MoveBodyPart(false, leg1);
-        
-        if (Input.GetKey(KeyCode.A))
-            MoveBodyPart(true, leg2);
-        
-        if (Input.GetKey(KeyCode.Q))
-            MoveBodyPart(false, leg2);
+            if (Input.GetKey(KeyCode.D))
+            {
+                MoveBodyPart(false, arm1);
+                MoveBodyPart(false, arm2);
+            }
+
+            if (Input.GetKey(KeyCode.Q))
+                MoveBodyPart(true, leg1);
+
+            if (Input.GetKey(KeyCode.A))
+                MoveBodyPart(false, leg1);
+
+            if (Input.GetKey(KeyCode.W))
+                MoveBodyPart(true, leg2);
+
+            if (Input.GetKey(KeyCode.S))
+                MoveBodyPart(false, leg2);
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.I))
+            {
+                MoveBodyPart(true, arm1);
+                MoveBodyPart(true, arm2);
+            }
+
+            if (Input.GetKey(KeyCode.J))
+            {
+                MoveBodyPart(false, arm1);
+                MoveBodyPart(false, arm2);
+            }
+
+            if (Input.GetKey(KeyCode.O))
+                MoveBodyPart(true, leg1);
+
+            if (Input.GetKey(KeyCode.K))
+                MoveBodyPart(false, leg1);
+
+            if (Input.GetKey(KeyCode.P))
+                MoveBodyPart(true, leg2);
+
+            if (Input.GetKey(KeyCode.L))
+                MoveBodyPart(false, leg2);
+        }
 
     }
     
@@ -92,7 +124,8 @@ public class CharacterController : MonoBehaviour
     {
         var localTrans = bodyPart.transform;
         var eulerAngles = bodyPart.transform.eulerAngles; //To control rotation
-        //eulerAngles.z = Mathf.Clamp(eulerAngles.z, minRotation, maxRotation);
+        //var zRotation;
+        //zRotation = Mathf.Clamp(zRotation + eulerAngles.z, minRotation, maxRotation);
         var sign = 1;
         if (!up) //Move down instead
             sign *= -1;
