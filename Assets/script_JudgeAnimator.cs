@@ -6,6 +6,9 @@ public class script_JudgeAnimator : MonoBehaviour
 {
     [SerializeField] private Transform leftArm;
     [SerializeField] private Transform rightArm;
+    public GameObject speachBubblePrefab;
+
+    private string[] thingsToSay = new string[]{"I love wrestling!", "One is very amused!", "Oh yeah!", "What a fight!", "Give him the chair!", "This beats solving world hunger","WHAT?", "TRANSFERENCE" ,"Boooo!"};
 
 
     private float minMoveTime = 0.1f;
@@ -33,6 +36,11 @@ public class script_JudgeAnimator : MonoBehaviour
     private float rightTargetTime = 0f;
     private float leftTargetTime = 0f;
 
+    private float minSpeachInterval = 5f;
+    private float maxSpeachInterval = 60f;
+    private float speachTimer = 0f;
+    private float speachSpawnTarget = 0f;
+
     public void Start(){
         leftInitialRot = 0f;
         rightInitialRot = 0f;
@@ -46,6 +54,8 @@ public class script_JudgeAnimator : MonoBehaviour
         targetY = Random.Range(startY-maxMoveDist, startY+maxMoveDist);
 
         moveTimeLength= Random.Range(0.05f, 0.2f);
+
+        speachSpawnTarget = Random.Range(minSpeachInterval, maxSpeachInterval);
     }
 
 
@@ -53,6 +63,7 @@ public class script_JudgeAnimator : MonoBehaviour
         rightTimer+=Time.deltaTime;
         leftTimer+=Time.deltaTime;
         moveTimer+=Time.deltaTime;
+        speachTimer+=Time.deltaTime;
 
         //left arm logic
         float newLeftRot = Mathf.Lerp(leftInitialRot, leftTargetRot, (leftTimer/leftTargetTime));
@@ -66,7 +77,7 @@ public class script_JudgeAnimator : MonoBehaviour
             leftTargetTime = Random.Range(minMoveTime, maxMoveTime);
             leftTimer = 0f;
 
-            Debug.Log("Initial rot, target rot, target time " + leftInitialRot+"," + leftTargetRot+","+leftTargetTime);
+            //Debug.Log("Initial rot, target rot, target time " + leftInitialRot+"," + leftTargetRot+","+leftTargetTime);
         }
 
         //right arm logic
@@ -93,6 +104,18 @@ public class script_JudgeAnimator : MonoBehaviour
             moveTimer = 0f;
             targetY = Random.Range(startY-maxMoveDist, startY+maxMoveDist);
             initialY = this.transform.position.y;
+        }
+
+        //Speach Logic
+        if(speachTimer>speachSpawnTarget){
+            Vector3 judgePos = this.transform.position;
+            Vector3 spawnPos = new Vector3(judgePos.x, judgePos.y+6f, judgePos.z);
+            GameObject speachBubObj = Instantiate(speachBubblePrefab, spawnPos, this.transform.rotation, this.transform );
+            string text = thingsToSay[Random.Range(0, thingsToSay.Length)];
+            speachBubObj.GetComponent<script_SpeachBubble>().Bind(text, 2f, 1f);
+            speachTimer = 0f;
+            speachSpawnTarget=Random.Range(minSpeachInterval, maxSpeachInterval);
+            
         }
 
 

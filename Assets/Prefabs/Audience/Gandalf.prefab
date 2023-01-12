@@ -301,6 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftArm: {fileID: 6417343529458242499}
   rightArm: {fileID: 6417343531478559037}
+  speachBubblePrefab: {fileID: 3256293900225857739, guid: 53ae4a710369cdc49bac83e775efecc6, type: 3}
 --- !u!1 &6417343531478559036
 GameObject:
   m_ObjectHideFlags: 0

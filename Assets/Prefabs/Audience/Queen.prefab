@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftArm: {fileID: 9157026396364339446}
   rightArm: {fileID: 9157026395695038984}
+  speachBubblePrefab: {fileID: 3256293900225857739, guid: 53ae4a710369cdc49bac83e775efecc6, type: 3}
 --- !u!212 &7256419610879928725
 SpriteRenderer:
   m_ObjectHideFlags: 0

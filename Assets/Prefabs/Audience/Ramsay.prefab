@@ -333,3 +333,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftArm: {fileID: 9095092922196794325}
   rightArm: {fileID: 9095092922870210859}
+  speachBubblePrefab: {fileID: 3256293900225857739, guid: 53ae4a710369cdc49bac83e775efecc6, type: 3}
