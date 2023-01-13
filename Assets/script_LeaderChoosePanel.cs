@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class script_LeaderChoosePanel : MonoBehaviour
 {
@@ -102,6 +103,9 @@ public class script_LeaderChoosePanel : MonoBehaviour
 
     public void StartFight(){
         Debug.Log("P1 Leader: " + p1Leader + " P2 Leader: " +p2Leader);
+        PlayerCharacterHolder.playerOneCharacterName = p1Leader.ToString();
+        PlayerCharacterHolder.playerTwoCharacterName = p2Leader.ToString();
+        SceneManager.LoadScene("FightScene");
     }
 
     public int GetNextPlayerToSelect(){
