@@ -25,7 +25,7 @@ public class FadeToBlack : MonoBehaviour
     void Start()
     {
         nowActive = true;
-        Debug.Log("Fading to black.");
+//        Debug.Log("Fading to black.");
         image = gameObject.GetComponent<Image>();
         maxAlpha = 1f;
         SetAlpha(0f);

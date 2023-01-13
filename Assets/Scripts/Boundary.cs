@@ -10,17 +10,17 @@ public class Boundary : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Checks that both players are in the Arena at the start
-        switch (other.tag)
-        {
-            case "Player 1":
-                Debug.Log("Player 1 is in the Arena");
-                break;
-            case "Player 2":
-                Debug.Log("Player 2 is in the Arena");
-                break;
-            default:
-                break;
-        }
+//         switch (other.tag)
+//         {
+//             case "Player 1":
+// //                Debug.Log("Player 1 is in the Arena");
+//                 break;
+//             case "Player 2":
+//      //           Debug.Log("Player 2 is in the Arena");
+//                 break;
+//             default:
+//                 break;
+//         }
     }
 
     private void OnTriggerExit(Collider other)

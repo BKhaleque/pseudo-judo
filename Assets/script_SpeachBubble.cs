@@ -30,7 +30,7 @@ public class script_SpeachBubble : MonoBehaviour
         }
 
         if(timer>(lifeSpan*2)){
-            Debug.Log("Destroying speach bubble as existed for " + timer);
+//            Debug.Log("Destroying speach bubble as existed for " + timer);
             Destroy(gameObject);
         }
 

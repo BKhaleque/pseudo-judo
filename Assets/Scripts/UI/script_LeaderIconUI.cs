@@ -64,7 +64,7 @@ public class script_LeaderIconUI : MonoBehaviour
         int playerSelected = leaderPanel.GetNextPlayerToSelect();
         if(playerSelected<3){
             leaderPanel.SetSelectedLeader(leader, this);
-            Debug.Log("Temp leader selected " + leader);
+//            Debug.Log("Temp leader selected " + leader);
 
 
             if(playerSelected==1){

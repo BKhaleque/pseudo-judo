@@ -150,7 +150,7 @@ public class BattleManager : MonoBehaviour
 
         if (currentRound < maxRounds)
         {
-            Debug.Log("Round " + currentRound);
+//            Debug.Log("Round " + currentRound);
             if (playerOnePoints == pointsToVictory - 1)
             {
                 roundStartPrompt.text = "Round " + currentRound.ToString() + "\nMatch Point: Player 1!";
