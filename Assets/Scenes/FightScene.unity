@@ -2598,10 +2598,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 3c12feae68644f14ab1b552529eb80fe, type: 3}
+  - {fileID: 8300000, guid: aa5a638b13c593243bb00a1d43f14504, type: 3}
+  - {fileID: 8300000, guid: 3c12feae68644f14ab1b552529eb80fe, type: 3}
+  - {fileID: 8300000, guid: aa5a638b13c593243bb00a1d43f14504, type: 3}
   audio: {fileID: 1352125668}
 --- !u!82 &1352125668
 AudioSource:
