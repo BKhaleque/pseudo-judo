@@ -91,7 +91,7 @@ public class BattleManager : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
-        fadeToBlack.nowActive = true;
+        fadeToBlack.gameObject.SetActive(true);
         fadeToBlack.duration = duration;
 
         yield return new WaitForSeconds(duration);
