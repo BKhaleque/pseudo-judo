@@ -10,9 +10,9 @@ public class CharacterController : MonoBehaviour
     public float forceModifier;
     public float maxVelocity;
     public float maxLegRotation;
-    public float maxArmRotation;
+    //public float maxArmRotation;
     public float minLegRotation; 
-    public float minArmRotation; 
+    //public float minArmRotation; 
     public bool isPlayerOne;
     
     private List<GameObject> bodyParts;
@@ -64,15 +64,12 @@ public class CharacterController : MonoBehaviour
             }
             Searcher(list, gameObj.gameObject);
         }
-        
-        
-        
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if(BattleManager.instance.fightBegin == true)
+        if(BattleManager.instance.fightBegin)
         {
             if (isPlayerOne)
             {
@@ -156,10 +153,8 @@ public class CharacterController : MonoBehaviour
 
         }
 
-        if (signedAngle < maxArmRotation && signedAngle > minArmRotation && bodyPart.tag.Equals("arm"))
+        if (bodyPart.tag.Equals("arm"))
             AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, true);
-        else if (bodyPart.tag.Equals("arm"))
-            AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, false);
 
     }
 
