@@ -6,6 +6,9 @@ public class MusicHandler : MonoBehaviour
 {
     public AudioClip[] musicList;
     public AudioSource audio;
+
+    private int songOne;
+    private int songTwo;
     private bool firstSongPlaying = true;
 
     int GetMusicFromCharacter(string characterName)
@@ -42,7 +45,7 @@ public class MusicHandler : MonoBehaviour
         return 0;
     }
 
-    void PlaySongs(int songOne, int songTwo)
+    void PlaySongs()
     {
         if (firstSongPlaying)
         {
@@ -57,15 +60,16 @@ public class MusicHandler : MonoBehaviour
 
         audio.Play();
         Invoke("PlaySongs", audio.clip.length);
-        Debug.Log("Playing the other song.");
     }
 
     // Start is called before the first frame update
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        int songNumberOne = GetMusicFromCharacter(PlayerCharacterHolder.playerOneCharacterName);
-        int songNumberTwo = GetMusicFromCharacter(PlayerCharacterHolder.playerTwoCharacterName);
+        songOne = GetMusicFromCharacter(PlayerCharacterHolder.playerOneCharacterName);
+        songTwo = GetMusicFromCharacter(PlayerCharacterHolder.playerTwoCharacterName);
+
+        PlaySongs();
     }
 
     // Update is called once per frame
