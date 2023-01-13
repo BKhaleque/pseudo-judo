@@ -9,4 +9,10 @@ public class QuitGame: MonoBehaviour
         Application.Quit();
         Debug.Log("The game has now quit.");
     }
+
+    public void ChangeRoundCount(int roundCount)
+    {
+        PlayerCharacterHolder.pointsToWin = roundCount;
+        Debug.Log("Rounds to win: " + PlayerCharacterHolder.pointsToWin.ToString());
+    }
 }
