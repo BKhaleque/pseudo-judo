@@ -105,6 +105,12 @@ public class script_LeaderChoosePanel : MonoBehaviour
         Debug.Log("P1 Leader: " + p1Leader + " P2 Leader: " +p2Leader);
         PlayerCharacterHolder.playerOneCharacterName = p1Leader.ToString();
         PlayerCharacterHolder.playerTwoCharacterName = p2Leader.ToString();
+        StartCoroutine(LoadFightScene());
+    }
+
+    IEnumerator LoadFightScene()
+    {
+        yield return new WaitForSeconds(3);
         SceneManager.LoadScene("FightScene");
     }
 
