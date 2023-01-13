@@ -24,6 +24,8 @@ public class FadeToBlack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nowActive = true;
+        Debug.Log("Fading to black.");
         image = gameObject.GetComponent<Image>();
         maxAlpha = 1f;
         SetAlpha(0f);
