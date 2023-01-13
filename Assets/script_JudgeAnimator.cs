@@ -109,7 +109,7 @@ public class script_JudgeAnimator : MonoBehaviour
         //Speach Logic
         if(speachTimer>speachSpawnTarget){
             Vector3 judgePos = this.transform.position;
-            Vector3 spawnPos = new Vector3(judgePos.x, judgePos.y+6f, judgePos.z);
+            Vector3 spawnPos = new Vector3(judgePos.x+3f, judgePos.y+8f, judgePos.z);
             GameObject speachBubObj = Instantiate(speachBubblePrefab, spawnPos, this.transform.rotation, this.transform );
             string text = thingsToSay[Random.Range(0, thingsToSay.Length)];
             speachBubObj.GetComponent<script_SpeachBubble>().Bind(text, 2f, 1f);
