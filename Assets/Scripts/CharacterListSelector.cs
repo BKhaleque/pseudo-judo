@@ -29,12 +29,21 @@ public class CharacterListSelector : MonoBehaviour
 
         switch(characterName.ToLower())
         {
+            // Roster Slot 0 and 1 are reserved for Default characters
             case "putin":
-                myCharacter = characterRoster[0];
+                myCharacter = characterRoster[2];
                 break;
 
             case "boris":
-                myCharacter = characterRoster[1];
+                myCharacter = characterRoster[3];
+                break;
+
+            case "biden":
+                myCharacter = characterRoster[4];
+                break;
+
+            case "macron":
+                myCharacter = characterRoster[5];
                 break;
 
             default:
