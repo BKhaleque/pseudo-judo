@@ -112,16 +112,16 @@ public class CharacterController : MonoBehaviour
                 }
 
                 if (Input.GetKey(KeyCode.K))
-                    MoveBodyPart(true, leg1);
-
-                if (Input.GetKey(KeyCode.O))
-                    MoveBodyPart(false, leg1);
-
-                if (Input.GetKey(KeyCode.L))
                     MoveBodyPart(true, leg2);
 
-                if (Input.GetKey(KeyCode.P))
+                if (Input.GetKey(KeyCode.O))
                     MoveBodyPart(false, leg2);
+
+                if (Input.GetKey(KeyCode.L))
+                    MoveBodyPart(true, leg1);
+
+                if (Input.GetKey(KeyCode.P))
+                    MoveBodyPart(false, leg1);
             }
 
         }
