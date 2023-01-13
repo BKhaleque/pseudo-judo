@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2498,7 +2498,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229.19998, y: -180.41576}
+  m_AnchoredPosition: {x: 109.33334, y: -155.21225}
   m_SizeDelta: {x: 299.8272, y: 63.5123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &617346943
@@ -4116,7 +4116,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229.19998, y: -327.6032}
+  m_AnchoredPosition: {x: 109.33334, y: -282.23685}
   m_SizeDelta: {x: 299.8272, y: 63.5123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &909899041
@@ -5034,7 +5034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229.19998, y: -106.82206}
+  m_AnchoredPosition: {x: 109.33334, y: -91.69995}
   m_SizeDelta: {x: 299.8272, y: 63.5123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1258169703
@@ -5384,7 +5384,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229.19998, y: -35.012604}
+  m_AnchoredPosition: {x: 109.33334, y: -29.9719}
   m_SizeDelta: {x: 370.7014, y: 59.9438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1332137796
@@ -7352,7 +7352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229.19998, y: -254.00948}
+  m_AnchoredPosition: {x: 109.33334, y: -218.72455}
   m_SizeDelta: {x: 299.8272, y: 63.5123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1882109595
@@ -7525,8 +7525,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.8155, y: -12.4559}
-  m_SizeDelta: {x: 331.1291, y: 201.0646}
+  m_AnchoredPosition: {x: -1.8155, y: 9.02}
+  m_SizeDelta: {x: 331.1291, y: 244.02}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1906212037
 MonoBehaviour:
@@ -7548,8 +7548,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. '
+  m_text: 'Player 1:
+
+    Q-A - Left Leg
+
+    W-S - Right Leg
+
+    E -D - Arms
+
+
+    Player
+    2:
+
+    P-L - Left Leg
+
+    O-K - Right Leg
+
+    I-J - Arms'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7092871b2183d46bb700d6ca941746, type: 2}
   m_sharedMaterial: {fileID: -8248968145148765793, guid: cd7092871b2183d46bb700d6ca941746, type: 2}
@@ -7576,10 +7591,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
+  m_fontSize: 22
   m_fontSizeBase: 26
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
