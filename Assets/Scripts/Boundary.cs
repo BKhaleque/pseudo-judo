@@ -29,7 +29,7 @@ public class Boundary : MonoBehaviour
         switch (other.tag)
         {
             case "Player 1":
-                Debug.Log("Player 1 is out of the Arena");
+            //    Debug.Log("Player 1 is out of the Arena");
                 if (!roundOver)
                 {
                     roundOver = true;
@@ -37,7 +37,7 @@ public class Boundary : MonoBehaviour
                 }
                 break;
             case "Player 2":
-                Debug.Log("Player 2 is out of the Arena");
+     //           Debug.Log("Player 2 is out of the Arena");
                 if (!roundOver)
                 {
                     roundOver = true;
