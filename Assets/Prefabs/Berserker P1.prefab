@@ -2289,13 +2289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04328b70ccb3417eb52da43e818e404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementUnits: 1
+  movementUnits: 2
   forceModifier: 200
   maxVelocity: 1
-  maxLegRotation: 200
-  maxArmRotation: 320
-  minLegRotation: -40
-  minArmRotation: 0
   isPlayerOne: 0
 --- !u!54 &5897580587519071299
 Rigidbody:
