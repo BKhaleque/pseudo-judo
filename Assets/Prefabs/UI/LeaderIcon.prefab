@@ -357,6 +357,8 @@ MonoBehaviour:
   BorisName: Johnson
   PutinFace: {fileID: 21300000, guid: c872355462c4d924cbaf6d6aee22aa61, type: 3}
   PutinName: Putin
+  BidenFace: {fileID: 21300000, guid: 0ef86bc11b8ff6247839be3d963c17ee, type: 3}
+  BidenName: Biden
   iconImage: {fileID: 1200111325968731640}
   iconText: {fileID: 5725896416398934164}
   selectedP1Panel: {fileID: 3490968327134983754}

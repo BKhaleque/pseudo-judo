@@ -6,5 +6,6 @@ public enum enum_Leaders
 {
     NONE,
     BORIS,
-    PUTIN
+    PUTIN,
+    BIDEN
 }
