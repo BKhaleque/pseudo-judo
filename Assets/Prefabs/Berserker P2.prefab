@@ -2337,7 +2337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementUnits: 2
   forceModifier: 200
-  maxVelocity: 1
+  maxVelocity: 2
   isPlayerOne: 0
 --- !u!54 &5133019135805016053
 Rigidbody:

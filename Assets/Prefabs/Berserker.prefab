@@ -1923,12 +1923,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementUnits: 1
   forceModifier: 200
-  maxVelocity: 1
-  maxLegRotation: 200
-  maxArmRotation: 320
-  minLegRotation: -40
-  minArmRotation: 0
-  player1: 0
+  maxVelocity: 2
+  isPlayerOne: 0
 --- !u!54 &4379763369732506959
 Rigidbody:
   m_ObjectHideFlags: 0
