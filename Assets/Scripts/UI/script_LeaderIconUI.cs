@@ -9,12 +9,16 @@ public class script_LeaderIconUI : MonoBehaviour
 {
     [SerializeField] private Sprite BorisFace;
     [SerializeField] private string BorisName;
+    [SerializeField] private AudioSource BorisSFX;
     [SerializeField] private Sprite PutinFace;
     [SerializeField] private string PutinName;
+    [SerializeField] private AudioSource PutinSFX;
     [SerializeField] private Sprite BidenFace;
     [SerializeField] private string BidenName;
+    [SerializeField] private AudioSource BidenSFX;
     [SerializeField] private Sprite MacronFace;
     [SerializeField] private string MacronName;
+    [SerializeField] private AudioSource MacronSFX;
     [SerializeField] private Image iconImage;
     [SerializeField] private TMP_Text iconText;
 
@@ -70,6 +74,15 @@ public class script_LeaderIconUI : MonoBehaviour
                 selectedP2Panel.SetActive(true);
             }
 
+            //Play Audio
+
+            if(leader==enum_Leaders.BORIS){
+                BorisSFX.Play(0);
+            }
+            else if(leader==enum_Leaders.PUTIN){
+                PutinSFX.Play(0);
+
+            }
         }
         else{
             Debug.Log("Players already selected");
