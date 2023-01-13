@@ -7,5 +7,6 @@ public enum enum_Leaders
     NONE,
     BORIS,
     PUTIN,
-    BIDEN
+    BIDEN,
+    MACRON
 }

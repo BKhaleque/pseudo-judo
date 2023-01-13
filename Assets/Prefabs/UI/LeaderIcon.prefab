@@ -359,6 +359,8 @@ MonoBehaviour:
   PutinName: Putin
   BidenFace: {fileID: 21300000, guid: 0ef86bc11b8ff6247839be3d963c17ee, type: 3}
   BidenName: Biden
+  MacronFace: {fileID: 21300000, guid: 5b8ccd881b3ad764f95abbb80198e6d5, type: 3}
+  MacronName: Macron
   iconImage: {fileID: 1200111325968731640}
   iconText: {fileID: 5725896416398934164}
   selectedP1Panel: {fileID: 3490968327134983754}

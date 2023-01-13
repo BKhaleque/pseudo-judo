@@ -13,6 +13,8 @@ public class script_LeaderIconUI : MonoBehaviour
     [SerializeField] private string PutinName;
     [SerializeField] private Sprite BidenFace;
     [SerializeField] private string BidenName;
+    [SerializeField] private Sprite MacronFace;
+    [SerializeField] private string MacronName;
     [SerializeField] private Image iconImage;
     [SerializeField] private TMP_Text iconText;
 
@@ -39,6 +41,10 @@ public class script_LeaderIconUI : MonoBehaviour
             case enum_Leaders.BIDEN:
                 iconImage.sprite = BidenFace;
                 iconText.text = BidenName;
+                break;
+            case enum_Leaders.MACRON:
+                iconImage.sprite = MacronFace;
+                iconText.text = MacronName;
                 break;
                 
             default:
