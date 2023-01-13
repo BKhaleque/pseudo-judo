@@ -6,4 +6,5 @@ public static class PlayerCharacterHolder
 {
     public static string playerOneCharacterName;
     public static string playerTwoCharacterName;
+    public static int pointsToWin = 3;
 }
