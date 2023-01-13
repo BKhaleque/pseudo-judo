@@ -9,9 +9,9 @@ public class CharacterController : MonoBehaviour
     public float movementUnits;
     public float forceModifier;
     public float maxVelocity;
-    public float maxLegRotation;
+    //public float maxLegRotation;
     //public float maxArmRotation;
-    public float minLegRotation; 
+    //public float minLegRotation; 
     //public float minArmRotation; 
     public bool isPlayerOne;
     
@@ -138,22 +138,22 @@ public class CharacterController : MonoBehaviour
         var signedAngle = (eulerAngles.z > 180) ? eulerAngles.z - 360 : eulerAngles.z; //Get angle with +ive or -ive value
 
         //var forceToAdd = Vector3.zero;
-        if (signedAngle < maxLegRotation && signedAngle > minLegRotation && bodyPart.tag.Equals("leg"))
-        {
-            AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, true);
-            //Debug.Log("In correct range");
-            //Debug.Log(signedAngle);
+        // if (signedAngle < maxLegRotation && signedAngle > minLegRotation && bodyPart.tag.Equals("leg"))
+        // {
+        //     AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, true);
+        //     //Debug.Log("In correct range");
+        //     //Debug.Log(signedAngle);
+        //
+        // }
+        // else if( bodyPart.tag.Equals("leg"))
+        // {
+        //     AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, false);
+        //     //Debug.Log(eulerAngles.z);
+        //     //Debug.Log(signedAngle);
+        //
+        // }
 
-        }
-        else if( bodyPart.tag.Equals("leg"))
-        {
-            AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, false);
-            //Debug.Log(eulerAngles.z);
-            //Debug.Log(signedAngle);
-
-        }
-
-        if (bodyPart.tag.Equals("arm"))
+        // if (bodyPart.tag.Equals("arm"))
             AddForceToRigidBody(rb, eulerAngles, sign, bodyPart, true);
 
     }
@@ -169,7 +169,7 @@ public class CharacterController : MonoBehaviour
                     bodyPart.transform.position); // Add force in the direction of movement at bodypart position
         }
         else
-            forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z - (movementUnits*15* sign));
+            forceToAdd = new Vector3(eulerAngles.x, eulerAngles.y, eulerAngles.z - (movementUnits*20* sign));
         
         bodyPart.transform.eulerAngles = forceToAdd;
 
