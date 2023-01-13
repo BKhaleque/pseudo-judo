@@ -149,7 +149,7 @@ AudioMixerController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SFXMixer
-  m_OutputGroup: {fileID: 24300002, guid: 39f91b22b0756405dbd3532982d0de5c, type: 2}
+  m_OutputGroup: {fileID: 7757380504842774082, guid: 39f91b22b0756405dbd3532982d0de5c, type: 2}
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
